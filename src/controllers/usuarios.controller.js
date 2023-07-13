@@ -2,8 +2,13 @@ import { pool } from "../db.js";
 
 export const getUsuarios = async(req, res) => {
     try {
+        let servicioUsuarios = "";
         const [rows] = await pool.query("Select * from usuario");
-        res.json(rows);
+        // console.log(rows[0].cedula);
+        // servicioUsuarios = servicioUsuarios + `<li>${rows[0].cedula}</li>`;
+        //document.getElementById('servicio_usu').innerHTML=servicioUsuarios;
+        res.json(rows);       
+        
     } catch (error) {
         return res.status(500).json({ 
             "message": "ALGO SALIO MAL CON LA CONSULTA"
